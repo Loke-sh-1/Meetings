@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{%block title%}Welcome{%endblock%} 
+
+{%block content%}
+    <h1>Welcome to the Meeting planet!..</h1>
+    <p>This is demo This paragraph
+        contains a lot of lines
+        in the source code,
+        but the browser
+        ignores it.
+        <em>Django: Getting started</em> on <a href="https://www.duckduckgo.com">here</a>
+
+    </p>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'detail' meeting.id %}"> {{meeting.title}}</a>
+            </li>
+        {%endfor%}
+    </ul>
+    <a href="{% url 'rooms' %}">Rooms</a>
+    <br>
+    <a href="{% url 'new' %} ">New Meeting</a>
+
+{%endblock%}
